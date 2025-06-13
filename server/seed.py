@@ -1,6 +1,3 @@
-#!/usr/bin/env python3
-# server/seed.py
-
 from app import app
 from models import db, Earthquake
 
@@ -12,6 +9,8 @@ with app.app_context():
     # Add several Earthquake instances to the "earthquakes" table
     db.session.add(Earthquake(magnitude=9.5, location="Chile", year=1960))
     db.session.add(Earthquake(magnitude=9.2, location="Alaska", year=1964))
+    db.session.add(Earthquake(magnitude=9.0, location="Japan", year=2011))
+    db.session.add(Earthquake(magnitude=9.0, location="Indonesia", year=2004))
     db.session.add(Earthquake(magnitude=8.6, location="Alaska", year=1946))
     db.session.add(Earthquake(magnitude=8.5, location="Banda Sea", year=1934))
     db.session.add(Earthquake(magnitude=8.4, location="Chile", year=1922))

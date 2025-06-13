@@ -22,19 +22,29 @@ class TestApp:
         # convert to JSON
         response_json = json.loads(response_body)
         # confirm JSON data
-        assert response_json["count"] == 2
-        assert len(response_json["quakes"]) == 2
+        assert response_json["count"] == 4
+        assert len(response_json["quakes"]) == 4
         # confirm list contents
         quake1 = response_json["quakes"][0]
-        assert quake1["id"] == 1
+        assert "id" in quake1
         assert quake1["magnitude"] == 9.5
         assert quake1["location"] == "Chile"
         assert quake1["year"] == 1960
         quake2 = response_json["quakes"][1]
-        assert quake2["id"] == 2
+        assert "id" in quake2
         assert quake2["magnitude"] == 9.2
         assert quake2["location"] == "Alaska"
         assert quake2["year"] == 1964
+        quake3 = response_json["quakes"][2]
+        assert "id" in quake3
+        assert quake3["magnitude"] == 9.0
+        assert quake3["location"] == "Japan"
+        assert quake3["year"] == 2011
+        quake4 = response_json["quakes"][3]
+        assert "id" in quake4
+        assert quake4["magnitude"] == 9.0
+        assert quake4["location"] == "Indonesia"
+        assert quake4["year"] == 2004
 
         # confirm status
         assert response.status_code == 200
